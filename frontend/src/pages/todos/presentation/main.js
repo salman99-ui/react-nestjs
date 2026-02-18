@@ -5,8 +5,9 @@ import ApiRequest from "../../../common/http";
 function Main() {
   const [todos, setTodos] = useState([]);
   const [params, setParams] = useState({
-    limit: 10,
+    limit: 100,
     offset: 0,
+    search: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,7 +47,7 @@ function Main() {
 
   useEffect(() => {
     getTodoList();
-  }, []);
+  }, [params]);
 
   return (
     <div>
@@ -84,6 +85,18 @@ function Main() {
                 )}
               </div>
             )}
+          </div>
+          <div>
+            Search :{" "}
+            <input
+              value={params.search}
+              onChange={(e) =>
+                setParams((prev) => ({ ...prev, search: e.target.value }))
+              }
+              style={{
+                border : "1px solid black"
+              }}
+            />
           </div>
           <table>
             <thead>
