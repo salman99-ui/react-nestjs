@@ -1,0 +1,6 @@
+# Run With Docker Compose 
+
+
+```
+docker compose up
+```
